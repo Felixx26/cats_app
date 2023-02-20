@@ -41,7 +41,7 @@ public class Cats_app {
                 }
                 case 1 -> {
                     Cats cat = new Cats();
-                    CatsService.seeFavorites(cat.getApikey());
+                    CatsService.seeFavoriteCat(cat.getApikey());
                 }
                 default -> {
                 }

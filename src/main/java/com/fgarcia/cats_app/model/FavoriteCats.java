@@ -10,7 +10,7 @@ import io.github.cdimascio.dotenv.Dotenv;
  *
  * @author felix
  */
-public class CatsFav {
+public class FavoriteCats {
     
     Dotenv dotenv = Dotenv.load();
     
