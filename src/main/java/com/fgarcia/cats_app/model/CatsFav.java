@@ -4,15 +4,19 @@
  */
 package com.fgarcia.cats_app.model;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 /**
  *
  * @author felix
  */
 public class CatsFav {
     
+    Dotenv dotenv = Dotenv.load();
+    
     private String id;
     private String image_id;
-    private String apikey = "live_F3BXIwh3kuadQMHlKecSIi0gnV612Em3gvGpvnObAlv3TdCYNMKJck0gPcQMot8R";
+    private String apikey = dotenv.get("API_KEY");
     private ImageX image;
 
     public String getId() {

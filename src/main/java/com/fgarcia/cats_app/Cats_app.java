@@ -28,7 +28,9 @@ public class Cats_app {
                     buttons,
                     buttons[0]);
             for (int i = 0; i < buttons.length; i++) {
-                if(option.equals(buttons[i])){
+                if(option == null){
+                    option_menu = 2;
+                } else if(option.equals(buttons[i])){
                     option_menu = i;
                 }
             }
@@ -45,7 +47,7 @@ public class Cats_app {
                 }
             }
             
-        } while (option_menu != 1);
+        } while (option_menu != 2);
         
     }
 }

@@ -103,7 +103,7 @@ public class CatsService {
             
             OkHttpClient client = new OkHttpClient();
             MediaType mediaType = MediaType.parse("application/json");
-            RequestBody body = RequestBody.create(mediaType, "{\n    \"image_id\": \""+cat.getId()+"\"\n}");
+            RequestBody body = RequestBody.create(mediaType, "{\"image_id\": \""+cat.getId()+"\"}");
             Request request = new Request.Builder()
                     .url("https://api.thecatapi.com/v1/favourites")
                     .method("POST", body)
@@ -111,6 +111,10 @@ public class CatsService {
                     .addHeader("Content-Type", "application/json")
                     .build();
             Response response = client.newCall(request).execute();
+            
+            if(!response.isSuccessful()){
+                response.body().close();
+            }
             
         } catch (IOException e) {
             System.out.println(e);
@@ -127,6 +131,10 @@ public class CatsService {
                     .addHeader("x-api-key", api_key)
                     .build();
             Response response = client.newCall(request).execute();
+            
+            if(!response.isSuccessful()){
+                response.body().close();
+            }
             
             String rawRes = response.body().string();
             
@@ -211,6 +219,11 @@ public class CatsService {
                     .addHeader("x-api-key", catFav.getApikey())
                     .build();
             Response response = client.newCall(request).execute();
+            
+            if(!response.isSuccessful()){
+                response.body().close();
+            }
+            
         } catch (IOException ex) {
             Logger.getLogger(CatsService.class.getName()).log(Level.SEVERE, null, ex);
         }
